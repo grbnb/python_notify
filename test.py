@@ -5,6 +5,7 @@
 cron: 20 9 */7 * *
 new Env('test');
 """
+import os
 try:
     from sendNotify import send
 except:
@@ -18,10 +19,10 @@ List = []
 
 if __name__ == '__main__':
     if 'Value_Test' in os.environ:
-        print('已配置环境变量Value_Test')
-        List.append(f'已配置环境变量Value_Test：{Value_Test}')
+        print(f'已配置环境变量Value_Test: {os.environ['Value_Test']}')
+        List.append(f'已配置环境变量Value_Test：{os.environ['Value_Test']}')
         msg = '\n'.join(List)
-        send('test', msg)
+        send('NotifyTest', msg)
     else:
         print('未配置环境变量Value_Test')
         send('test', '未配置环境变量Value_Test')

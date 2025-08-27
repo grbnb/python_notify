@@ -134,6 +134,8 @@ push_config = {
     'WXPUSHER_APP_TOKEN': '',           # wxpusher 的 appToken 官方文档: https://wxpusher.zjiecode.com/docs/ 管理后台: https://wxpusher.zjiecode.com/admin/
     'WXPUSHER_TOPIC_IDS': '',           # wxpusher 的 主题ID，多个用英文分号;分隔 topic_ids 与 uids 至少配置一个才行
     'WXPUSHER_UIDS': '',                # wxpusher 的 用户ID，多个用英文分号;分隔 topic_ids 与 uids 至少配置一个才行
+
+    'SHOWDOC_KEY': '',                  # ShowDoc推送的 KEY(推送地址最后面的41位值) 官网登录获取 https://push.showdoc.com.cn/
 }
 # fmt: on
 
@@ -883,6 +885,27 @@ def wxpusher_bot(title: str, content: str) -> None:
         print(f"wxpusher 推送失败！错误信息：{response.get('msg')}")
 
 
+def pushShowDoc(title: str, content: str) -> None:
+    """
+    使用 ShowDoc 推送消息。
+    """
+    if not push_config.get("SHOWDOC_KEY"):
+        return
+    print("ShowDoc 服务启动")
+
+    url = f' https://push.showdoc.com.cn/server/api/push/{push_config.get("SHOWDOC_KEY")}'
+    data = {
+        "title": title,
+        "content": content,
+    }
+    response = requests.post(url, data=data).json()
+
+    if response["error_code"] == 0:
+        print("ShowDoc 推送成功！")
+    else:
+        print(f'ShowDoc 推送失败！{response["error_message"]}')
+
+
 def parse_headers(headers):
     if not headers:
         return {}
@@ -1044,6 +1067,8 @@ def add_notify_function():
         notify_function.append(custom_notify)
     if push_config.get("NTFY_TOPIC"):
         notify_function.append(ntfy)
+    if push_config.get("SHOWDOC_KEY"):
+        notify_function.append(pushShowDoc)
     if push_config.get("WXPUSHER_APP_TOKEN") and (
         push_config.get("WXPUSHER_TOPIC_IDS") or push_config.get("WXPUSHER_UIDS")
     ):

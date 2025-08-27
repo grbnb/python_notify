@@ -42,6 +42,7 @@
 |  `NTFY_USERNAME`  |  ntfy推送  | 非必须 | 推送用户名称,可选 |
 |  `NTFY_PASSWORD`  |  ntfy推送  | 非必须 | 推送用户密码,可选 |
 |  `NTFY_ACTIONS`  |  ntfy推送  | 非必须 | 推送用户动作,可选 |
+|  `SHOWDOC_KEY`  |  ShowDoc推送  | 非必须 | ShowDoc推送的 KEY(推送地址最后面的41位值) 官网登录获取 https://push.showdoc.com.cn/  [官方文档](https://www.showdoc.com.cn/push) |
 |  `WXPUSHER_APP_TOKEN`  |  wxpusher推送  | 非必须 | wxpusher 的 appToken [官方文档](https://wxpusher.zjiecode.com/docs/)   [管理后台](https://wxpusher.zjiecode.com/admin/) |
 |  `WXPUSHER_TOPIC_IDS`  |  wxpusher推送  | 非必须 | wxpusher 的 主题ID，多个用英文分号;分隔 topic_ids 与 uids 至少配置一个才行 |
 |  `WXPUSHER_UIDS`  |  wxpusher推送  | 非必须 | wxpusher 的 用户ID，多个用英文分号;分隔 topic_ids 与 uids 至少配置一个才行 |
