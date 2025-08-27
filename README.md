@@ -38,6 +38,10 @@
 |  `NTFY_URL`  |  ntfy推送  | 非必须 | ntfy地址,如https://ntfy.sh   [官方文档](https://docs.ntfy.sh/publish/) |
 |  `NTFY_TOPIC`  |  ntfy推送  | 非必须 | ntfy的消息应用topic |
 |  `NTFY_PRIORITY`  |  ntfy推送  | 非必须 | 推送消息优先级,默认为3 |
+|  `NTFY_TOKEN`  |  ntfy推送  | 非必须 | 推送token,可选 |
+|  `NTFY_USERNAME`  |  ntfy推送  | 非必须 | 推送用户名称,可选 |
+|  `NTFY_PASSWORD`  |  ntfy推送  | 非必须 | 推送用户密码,可选 |
+|  `NTFY_ACTIONS`  |  ntfy推送  | 非必须 | 推送用户动作,可选 |
 |  `WXPUSHER_APP_TOKEN`  |  wxpusher推送  | 非必须 | wxpusher 的 appToken [官方文档](https://wxpusher.zjiecode.com/docs/)   [管理后台](https://wxpusher.zjiecode.com/admin/) |
 |  `WXPUSHER_TOPIC_IDS`  |  wxpusher推送  | 非必须 | wxpusher 的 主题ID，多个用英文分号;分隔 topic_ids 与 uids 至少配置一个才行 |
 |  `WXPUSHER_UIDS`  |  wxpusher推送  | 非必须 | wxpusher 的 用户ID，多个用英文分号;分隔 topic_ids 与 uids 至少配置一个才行 |
